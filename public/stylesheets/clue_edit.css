@@ -1,0 +1,48 @@
+.clue {
+    display: flex;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.clue-block {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 750px;
+    gap: 20px;
+    background-color: #f1f1f1;
+}
+
+.select-container {
+    display: flex;
+}
+
+.select {
+    width:200px;
+    height:25px;
+    border: 1px solid #e3e6e9;
+    outline: none;
+}
+
+.textarea {
+    margin-top:10px;
+    width:690px;
+    height: 90px;
+    padding:10px;
+    outline: none;
+    border:none;
+}
+
+.record-items {
+    overflow: auto;
+}
+
+
+
+.clue-btn {
+    padding:10px 0;
+    width:690px;
+    color: #fff;
+    border: none;
+    background-color: #333;
+}

@@ -1,0 +1,29 @@
+html,
+body {
+    overflow: hidden;
+}
+
+.street-bg {
+    font-size: 0;
+}
+
+.page-mainer.bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(/images/street.jpg);
+}
+
+.login-form-container {
+    width: 500px;
+    height: 400px;
+    padding: 75px;
+    background-color: #fff;
+    opacity: .85;
+}
+
+.form-title {
+    margin-bottom: 30px;
+    font-size: 38px;
+    letter-spacing: 0.5px;
+}

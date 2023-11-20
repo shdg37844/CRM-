@@ -1,0 +1,159 @@
+html,
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  min-width: 1148px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page-header {
+  padding-right: 50px;
+  height: 105px;
+  background-color: #212121;
+}
+
+.page-header.borderline {
+  border-bottom: 1px solid #444647;
+}
+
+.logo-box {
+  width: 260px;
+}
+
+.logo {
+  margin-top: 15px;
+  margin-left: 50px;
+  width: 100%;
+  height: auto;
+}
+
+.page-mainer {
+  display: flex;
+  flex: 1;
+}
+
+.page-mainer.flexcolumn {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+
+.reservation {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 60px;
+
+}
+
+.reservation span {
+  display: inline-block;
+  font-size: 38px;
+}
+
+.reservation-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.reservation-form {
+  padding-left: 450px;
+  padding-top: 50px;
+}
+
+.reservation-form-title {
+  width: 400px;
+  padding-bottom: 60px;
+  line-height: 33px;
+  color: rgb(118, 118, 118);
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.input-box.user {
+  padding: 30px 50px;
+  width:700px;
+}
+
+.back {
+  font-size: 20px;
+}
+
+.inner-input {
+  display:flex ;
+  flex-direction: column;
+  gap:10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(133, 133, 133);
+}
+
+.reservation-form-input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.reservation-form-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  height: 45px;
+  background-color: #212121;
+  text-decoration: none;
+}
+
+.reservation-form-btn span {
+  color: #fff;
+}
+
+.reservation-form-btn.save {
+  margin-top:-20px;
+}
+
+.page-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  background-color: #212121;
+}
+
+.page-footer span {
+  color: #fff;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 18px;
+  color: grey;
+}
+
+.loginout {
+  padding:10px 15px;
+  color: black;
+  background-color: #fff;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap:20px;
+  font-size: 16px;
+}
