@@ -7,20 +7,20 @@ module.exports = function (req, res, next) {
 
     let token = req.cookies.web_token;
     if (token) {
+        
         JWT.verify(token, JWT_SECRET, function (err, decoded) {
-            console.log(decoded);
 
             if (!err) {
-                let {  phone, character, name } = decoded;
-
                 // 设置登录状态和用户信息
                 res.locals.isLogin = true;
                 res.locals.userInfo = {
-                    phone: phone,
-                    character: character,
-                    name: name
+                    phone: decoded.phone,
+                    user_id: decoded.user_id,
+                    character: decoded.character,
+                    name: decoded.name
                 };
             }
+
             next();
         });
     } else {

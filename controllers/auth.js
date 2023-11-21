@@ -16,20 +16,29 @@ const authController = {
         }
 
         try {
+
+ 
             // 通过用户模型搜索用户
             const users = await User.select({ phone, password });
             // 看是否有用户存在
             const user = users[0];
+
             // 如果存在
             if (user) {
+
                 // 将其 id 放到 JWT 中加密
-                let token = JWT.sign({ user_id: user.id }, JWT_SECRET, {
+                let token = JWT.sign({
+                    user_id: user.id,
+                    phone: user.phone,
+                    character: user.character,
+                    name: user.name
+                }, JWT_SECRET, {
                     expiresIn: "30d"
                 });
                 // 加密放置在 cookie 中
                 res.cookie('web_token', token, { maxAge: 30 * 24 * 60 * 60 });
                 // 返回登录的信息
-                res.json({ code: 200, message: '登录成功！', data: { token: token }});
+                res.json({ code: 200, message: '登录成功！', data: { token: token } });
             } else {
                 res.json({ code: 0, data: { msg: '登录失败，没有此用户！' } })
             }

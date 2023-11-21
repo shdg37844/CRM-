@@ -6,8 +6,14 @@ const Clue = new clueModel();
 const customerController = {
     show: async function (req, res, next) {
         try {
+
+            const character = res.locals.userInfo.character;
+            const user_id = res.locals.userInfo.user_id;
+
+
             const customers = await Customer.all();
             res.locals.customers = customers;
+
             res.render('admin/clue.tpl', res.locals)
         } catch (e) {
             res.locals.error = e;
@@ -60,7 +66,6 @@ const customerController = {
         } catch (e) {
             console.log(e); // 输出错误信息到控制台
             res.json({ code: 0, data: e.message }); // 发送错误信息的字符串表示给客户端
-            //res.json({ code: 0, data: e })
         }
 
     },

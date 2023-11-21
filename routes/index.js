@@ -20,16 +20,16 @@ router.get('/admin/clue', authMiddleware.mustLogin, customerController.show);  /
 router.get('/admin/clue/edit/:id', authMiddleware.mustLogin, customerController.edit);
 
 // 新建用户页
-router.get('/admin/user/create', authMiddleware.mustLogin,  (req, res, next) => {
+router.get('/admin/user/create', authMiddleware.mustLogin, authMiddleware.mustRoot, (req, res, next) => {
   res.render('admin/user_create.tpl');
 });
 
 // 用户编辑页
-router.get('/admin/user/edit/:id', authMiddleware.mustLogin,  userController.edit);
+router.get('/admin/user/edit/:id', authMiddleware.mustLogin, authMiddleware.mustRoot, userController.edit);
 
 
 // 用户列表页
-router.get('/admin/user', authMiddleware.mustLogin, userController.show);
+router.get('/admin/user', authMiddleware.mustLogin, authMiddleware.mustRoot, userController.show);
 
 //退出登录
 router.get('/admin/logout', authController.logout);

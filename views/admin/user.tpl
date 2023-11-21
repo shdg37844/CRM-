@@ -43,7 +43,7 @@
                     <span class="w200">{{val.name}}</span>
                     <span class="w300">{{val.phone}}</span>
                     <span class="w300">{{val.password}}</span>
-                    <span class="w200">
+                    <span class="w200" class="edit-salesman">
                         {% if val.character == 1 %}
                             <div>管理员</div>
                         {% elif val.character == 2 %}
@@ -64,7 +64,7 @@
             </ul>
         </div>
    </div>
-
+   <input id="id"  type="text" hidden value="{{users.id}}" />
   <div class="page-footer">
     <span>copyright 极客学院体验技术部出品</span>
   </div>
@@ -103,7 +103,7 @@
                 console.log(err); 
               }
             })
-        }
+        },
     }
     $(function(){
     indexPage.init();
