@@ -42,7 +42,7 @@
         <div class="list-block">
           <div class="list-item bd br left w135">{{val.name}}</div>
           <div class="list-item bd br left w250">{{val.phone}}</div>
-          <div class="list-item bd br left w135"></div>
+          <div class="list-item bd br left w135">{{val.utm}}</div>
           <div class="list-item bd br left w250">{{val.time}}</div>
           <div class="list-item bd br left w135">{{val.salesman}}</div>
           <div class="list-item bd br left w135">

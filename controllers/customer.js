@@ -1,7 +1,6 @@
 const customerModel = require('./../models/customer_table.js');
-const clueModel = require('./../models/clue_table.js');
 const Customer = new customerModel();
-const Clue = new clueModel();
+
 
 const customerController = {
     show: async function (req, res, next) {
@@ -9,7 +8,6 @@ const customerController = {
 
             const character = res.locals.userInfo.character;
             const user_id = res.locals.userInfo.user_id;
-
 
             const customers = await Customer.all();
             res.locals.customers = customers;
@@ -24,15 +22,15 @@ const customerController = {
         let name = req.body.name;
         let phone = req.body.phone;
         let time = new Date();
-        console.log(name, phone, time);
-
+        let utm = req.body.utm;
+        
         if (!name || !phone) {
             res.json({ code: 0, data: 'params empty!' });
             return
         }
 
         try {
-            const customers = await Customer.insert({ name, phone, time });
+            const customers = await Customer.insert({ name, phone, time, utm });
             res.json({ code: 200, data: customers })
         } catch (e) {
             res.json({ code: 0, data: e })
@@ -54,14 +52,15 @@ const customerController = {
     update: async function (req, res, next) {
         let id = req.params.id;
         let status = req.body.status;
+        let remark = req.body.remark;
 
-        if (!status) {
+        if (!status || !remark ) {
             res.json({ code: 0, data: 'params empty!' });
             return
         }
 
         try {
-            const customers = await Customer.update(id, { status });
+            const customers = await Customer.update(id, { status,remark });
             res.json({ code: 200, data: customers })
         } catch (e) {
             console.log(e); // 输出错误信息到控制台

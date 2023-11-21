@@ -4,6 +4,7 @@ var userController = require('./../controllers/user.js');
 var authController = require('./../controllers/auth.js');
 var customerController = require('./../controllers/customer.js');
 var authMiddleware = require('./../middlewares/auth.js');
+var clueController = require('./../controllers/clue.js');
 
 //落地页
 router.get('/', function (req, res, next) {
@@ -17,7 +18,7 @@ router.get('/admin/login', authController.renderLogin);
 router.get('/admin/clue', authMiddleware.mustLogin, customerController.show);  //中间件位置放置顺序不能错
 
 // 线索编辑页
-router.get('/admin/clue/edit/:id', authMiddleware.mustLogin, customerController.edit);
+router.get('/admin/clue/edit/:id', authMiddleware.mustLogin, customerController.edit, clueController.show);
 
 // 新建用户页
 router.get('/admin/user/create', authMiddleware.mustLogin, authMiddleware.mustRoot, (req, res, next) => {

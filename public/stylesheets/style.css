@@ -86,7 +86,7 @@ body {
 
 .input-box.user {
   padding: 30px 50px;
-  width:700px;
+  width: 700px;
 }
 
 .back {
@@ -94,11 +94,30 @@ body {
 }
 
 .inner-input {
-  display:flex ;
+  display: flex;
   flex-direction: column;
-  gap:10px;
+  gap: 10px;
   padding-bottom: 20px;
   border-bottom: 1px solid rgb(133, 133, 133);
+}
+
+.last-inner-input {
+  display: flex;
+  gap:15px;
+  padding-bottom: 20px;
+  border: none;
+}
+
+.select {
+  height: 30px;
+  width: 500px;
+  border: 1px solid #e3e6e9;
+  outline: none;
+}
+
+.last-title {
+  font-size: 16px;
+  color: #757575;
 }
 
 .reservation-form-input {
@@ -122,7 +141,7 @@ body {
 }
 
 .reservation-form-btn.save {
-  margin-top:-20px;
+  margin-top: -20px;
 }
 
 .page-footer {
@@ -144,7 +163,7 @@ body {
 }
 
 .loginout {
-  padding:10px 15px;
+  padding: 10px 15px;
   color: black;
   background-color: #fff;
   border-radius: 10px;
@@ -154,6 +173,6 @@ body {
 .header-right {
   display: flex;
   align-items: center;
-  gap:20px;
+  gap: 20px;
   font-size: 16px;
 }

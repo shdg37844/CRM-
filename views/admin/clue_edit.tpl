@@ -33,7 +33,7 @@
         <div class="clue-block">
           <div>客户名称：{{customers.name}}</div>
           <div>联系电话：{{customers.phone}}</div>
-          <div>线索来源：</div>
+          <div>线索来源：{{customers.utm}}</div>
           <div>创建时间：{{customers.time}}</div>
 
           <div class="select-container">
@@ -56,24 +56,18 @@
             </select>
           </div>
 
-          <div>
+          <div class="remark-container">
             <div>备注：</div>
-            <textarea class="textarea" placeholder="添加备注"></textarea>
+            <textarea id="remark-text" class="textarea" placeholder="添加备注">{{customers.remark}}</textarea>
           </div>
-
           <button id="save-btn" class="clue-btn">保存</button>
         </div>
 
         <div class="clue-block">
           <div class="record-items">
-            {% for val in clue  %}
+            {% for val in clues  %}
               <div>{{val.time}}</div>
               <div>{{val.content}}</div>
-
-              {% else %}
-        <li class="log-item">
-          <p class="log-content">当前没有记录</p>
-        </li>
             {% endfor %}
           </div>
 
@@ -84,7 +78,6 @@
 
           <button id="add-btn" class="clue-btn">添加</button>
         </div>
-
       </div>
     </div>
   </div>
@@ -102,14 +95,42 @@
       this.bind();
     },
     bind:function(){
-      $('#add-btn').on('click',this.newClue);
       $('#logout').on('click',this.logoutSubmit);
       $('#save-btn').on('click',this.saveSubmit);
+      $('#add-btn').on('click',this.newClue);
     },
     logoutSubmit:function(){
       window.location.href = '/admin/logout';
     },
-    newClue:function(){
+    saveSubmit:function() {
+      let id = $('#id').val();
+      let status = $('#customer-status').val();
+      let salesman = $('#salesman').val();
+      let remark = $('#remark-text').val();
+      
+      if(!status || !salesman || !remark){
+        alert('内容不能为空')
+        return
+      }
+
+      $.ajax({
+          url: '/api/admin/clue/edit/' + id,
+          data: { status, salesman, remark },
+          type: 'PUT',
+          success: function(data) {
+            if(data.code === 200){
+              alert('修改成功！')
+              location.reload();
+            }else{
+              console.log(data)
+            }
+          },
+          error: function(err) {
+            console.log(err)
+          }
+      })
+    },
+    newClue:function() {
       let id = $('#id').val();
       let content = $('#new-content').val();
 
@@ -122,33 +143,6 @@
           url: '/api/admin/clue/edit/' + id,
           data: { content},
           type: 'POST',
-          success: function(data) {
-            if(data.code === 200){
-              alert('添加成功！')
-              location.reload()
-            }else{
-              console.log(data.message)
-            }
-          },
-          error: function(err) {
-            console.log(err)
-          }
-      })
-    },
-    saveSubmit:function() {
-      let id = $('#id').val();
-      let status = $('#customer-status').val();
-      let salesman = $('#salesman').val();
-      
-      if(!status || !salesman){
-        alert('内容不能为空')
-        return
-      }
-
-      $.ajax({
-          url: '/api/admin/clue/' + id,
-          data: { status, salesman },
-          type: 'PUT',
           success: function(data) {
             if(data.code === 200){
               alert('修改成功！')

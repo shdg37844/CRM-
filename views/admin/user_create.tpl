@@ -37,8 +37,8 @@
             <div class="inner-input">
                 <input type="password" id="new-password" name="password" class="reservation-form-input" placeholder="密码">
             </div>
-            <div class="inner-input">
-                <div>角色：</div>
+            <div class="last-inner-input">
+                <div class="last-title">角色</div>
                 <select id="new-character" class="select" required> 
                   <option value="0">选择角色</option>
                   <option value="1" {% if user.character == 1 %} selected {% endif %}>管理员</option>

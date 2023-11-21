@@ -52,6 +52,7 @@
     newCustomer:function() {
       let name = $('#new-name').val();
       let phone = $('#new-phone').val();
+      let utm = PAGE.getQuery('utm');
 
       if (!name || !phone) {
         alert('缺少参数')
@@ -60,7 +61,7 @@
 
       $.ajax({
         url: '/api/admin/clue',
-          data: { name, phone},
+          data: { name, phone, utm},
           type: 'POST',
           success: function(data) {
             if(data.code === 200){
