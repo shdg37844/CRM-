@@ -9,8 +9,10 @@
     flex-direction: column;
     padding: 20px;
     width: 750px;
+    height: 700px;
     gap: 20px;
     background-color: #f1f1f1;
+    overflow: auto;
 }
 
 .select-container {

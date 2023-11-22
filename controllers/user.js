@@ -3,7 +3,6 @@ const User = new userModel();
 
 const userController = {
     show: async function(req,res,next){
-        
         // 如果用户没有登录，重定向到登录页面
         if (!res.locals.isLogin) {
             res.redirect('/admin/login')
@@ -84,7 +83,8 @@ const userController = {
         }catch(e) {
             res.json({ code: 0, data: e })
         }
-    }
+    },
+    
 }
 
 module.exports = userController;

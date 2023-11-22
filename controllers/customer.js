@@ -36,31 +36,19 @@ const customerController = {
             res.json({ code: 0, data: e })
         }
     },
-    edit: async function (req, res, next) {
-        let id = req.params.id;
-        try {
-            const customers = await Customer.select({ id });
-            if (customers.length === 0) {
-                throw new Error('用户不存在');
-            }
-            res.locals.customers = customers[0];
-            res.render('admin/clue_edit.tpl', res.locals);
-        } catch (e) {
-            res.json({ code: 0, data: e })
-        }
-    },
     update: async function (req, res, next) {
         let id = req.params.id;
         let status = req.body.status;
         let remark = req.body.remark;
+        let salesman = req.body.salesman;
 
-        if (!status || !remark ) {
+        if (!status || !remark || !salesman) {
             res.json({ code: 0, data: 'params empty!' });
             return
         }
 
         try {
-            const customers = await Customer.update(id, { status,remark });
+            const customers = await Customer.update(id, { status, remark, salesman });
             res.json({ code: 200, data: customers })
         } catch (e) {
             console.log(e); // 输出错误信息到控制台
@@ -68,25 +56,7 @@ const customerController = {
         }
 
     },
-    insertClue: async function (req, res, next) {
-        let userId = req.params.id;  //用户id
-        let content = req.body.content;
-        let time = new Date();
 
-        if (!content) {
-            res.json({ code: 0, data: '内容不能为空' });
-            return;
-        }
-
-        try {
-            const clue = await Clue.insert({ userId, content, time });
-            res.json({ code: 200, data: clue });
-
-        } catch (e) {
-            console.error(e);
-            res.json({ code: 0, data: e.message });
-        }
-    }
 
 }
 

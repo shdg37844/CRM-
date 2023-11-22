@@ -49,9 +49,8 @@
           <div class="select-container">
             <div>当前分配销售：</div>
             <select id="salesman" class="select">
-              <option value="0">请选择分配销售</option>
-              {% for val in user  %}
-              <option value="{{val.id}}" {% if customer.id == val.id %} selected {% endif %}>{{val.name}}</option>
+              {% for val in salesman  %}
+              <option value="{{val.name}}">{{val.name}}</option>
               {% endfor %}
             </select>
           </div>
@@ -108,14 +107,14 @@
       let salesman = $('#salesman').val();
       let remark = $('#remark-text').val();
       
-      if(!status || !salesman || !remark){
+      if(!status || !salesman || !remark || !salesman ){
         alert('内容不能为空')
         return
       }
 
       $.ajax({
           url: '/api/admin/clue/edit/' + id,
-          data: { status, salesman, remark },
+          data: { status, salesman, remark, salesman },
           type: 'PUT',
           success: function(data) {
             if(data.code === 200){

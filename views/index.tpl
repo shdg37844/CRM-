@@ -52,7 +52,7 @@
     newCustomer:function() {
       let name = $('#new-name').val();
       let phone = $('#new-phone').val();
-      let utm = PAGE.getQuery('utm');
+      let utm = indexPage.getQuery('utm');
 
       if (!name || !phone) {
         alert('缺少参数')
@@ -75,7 +75,14 @@
             console.log(err)
           }
       })
+    },
+    getQuery:function(name) {
+    var result = location.search.match(new RegExp("[\?\&]" + name+ "=([^\&]+)","i"));
+    if(result == null || result.length < 1){
+        return "";
     }
+    return result[1];
+  },
   }
   $(function(){
     indexPage.init();

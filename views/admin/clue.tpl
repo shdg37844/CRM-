@@ -44,7 +44,9 @@
           <div class="list-item bd br left w250">{{val.phone}}</div>
           <div class="list-item bd br left w135">{{val.utm}}</div>
           <div class="list-item bd br left w250">{{val.time}}</div>
+
           <div class="list-item bd br left w135">{{val.salesman}}</div>
+          
           <div class="list-item bd br left w135">
             {% if val.status == 1 %}
               <div>没有意向</div>
