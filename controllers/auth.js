@@ -16,8 +16,6 @@ const authController = {
         }
 
         try {
-
- 
             // 通过用户模型搜索用户
             const users = await User.select({ phone, password });
             // 看是否有用户存在
@@ -25,7 +23,6 @@ const authController = {
 
             // 如果存在
             if (user) {
-
                 // 将其 id 放到 JWT 中加密
                 let token = JWT.sign({
                     user_id: user.id,

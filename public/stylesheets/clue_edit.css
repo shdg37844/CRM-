@@ -9,10 +9,8 @@
     flex-direction: column;
     padding: 20px;
     width: 750px;
-    height: 700px;
     gap: 20px;
     background-color: #f1f1f1;
-    overflow: auto;
 }
 
 .select-container {
@@ -20,30 +18,37 @@
 }
 
 .select {
-    width:200px;
-    height:25px;
+    width: 200px;
+    height: 25px;
     border: 1px solid #e3e6e9;
     outline: none;
 }
 
 .textarea {
-    margin-top:10px;
-    width:690px;
+    margin-top: 10px;
+    width: 690px;
     height: 90px;
-    padding:10px;
+    padding: 10px;
     outline: none;
-    border:none;
+    border: none;
 }
 
 .record-items {
+    height: 500px;
     overflow: auto;
 }
 
+.record-item-box {
+    margin-bottom: 20px;
+}
 
+.record-time {
+    color:rgb(138, 138, 192);
+}
 
 .clue-btn {
-    padding:10px 0;
-    width:690px;
+    padding: 10px 0;
+    width: 690px;
     color: #fff;
     border: none;
     background-color: #333;

@@ -12,19 +12,20 @@ const unitController = {
     edit: async function (req, res, next) {
         let id = req.params.id;
         try {
+
+            //线索追踪记录部分
             const clues = await Clue.all();
             res.locals.clues = clues;
 
-            // 如果 'id' 存在，则执行 'edit' 的逻辑
-            if (id) {
-                const customers = await Customer.select({ id });
-                const salesman = await User.select({ character: 2 });
-                if (customers.length === 0) {
-                    throw new Error('用户不存在');
-                }
-                res.locals.customers = customers[0];
-                res.locals.salesman = salesman;
+            //销售员选项部分
+            const customers = await Customer.select({ id });
+            const salesman = await User.select({ character: 2 });
+            if (customers.length === 0) {
+                throw new Error('用户不存在');
             }
+            res.locals.customers = customers[0];
+            res.locals.salesman = salesman;
+
 
             res.render('admin/clue_edit.tpl', res.locals);
         } catch (e) {

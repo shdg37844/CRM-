@@ -65,8 +65,10 @@
         <div class="clue-block">
           <div class="record-items">
             {% for val in clues  %}
-              <div>{{val.time}}</div>
-              <div>{{val.content}}</div>
+              <div class="record-item-box">
+                <div class="record-time">{{val.time}}</div>
+                <div>{{val.content}}</div>
+              </div>
             {% endfor %}
           </div>
 
